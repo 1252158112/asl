@@ -1,5 +1,7 @@
 
 on_install() {
+    ui_print "原作者:MistyRain"
+    ui_print "修复:vvvffff"
     ASL="/data/asl"
     if [ -d "$ASL" ]; then
         ui_print "- 检测到已安装本模块！"

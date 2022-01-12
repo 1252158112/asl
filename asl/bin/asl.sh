@@ -278,7 +278,7 @@ TOOLKIT="/data/asl/bin"
 # 容器储存目录
 HOME="/data/asl/rootfs"
 # ASL程序版本
-ASL_VERSION="Dev-2.6"
+ASL_VERSION="Dev-2.7"
 # 挂载LOG返回设置
 LOG_RETURE="true"
 
@@ -289,7 +289,7 @@ fi
 
 case "$DIRECTION" in
 -i | --install)
-    if [ "$3" = "--loacl" ]; then
+    if [ "$3" = "--local" ]; then
         INSTALL_LINUX_LOCAL="true"
     fi
     INSTALL_LINUX "$1" "$2"
@@ -299,13 +299,13 @@ case "$DIRECTION" in
     EXEC_ROOTFS "$1"
     ;;
 -l | --login)
-    ROOTFS="$HOME/$2"
+    ROOTFS="$HOME/$1"
     EXEC_ROOTFS "bash --login"
     ;;
 -d | --delete)
-    ROOTFS="$HOME/$2"
+    ROOTFS="$HOME/$1"
     UMOUNT_PARTITIONS
-    ASL_PRINT "正在删除${2}..."
+    ASL_PRINT "正在删除${1}..."
     rm -rf "$ROOTFS"
     ;;
 -h | --help)
@@ -313,8 +313,8 @@ case "$DIRECTION" in
     ;;
 -v | --version)
     echo "ASL Version: $ASL_VERSION"
-    echo "Author: MistyRain"
-    echo "Repo Url: https://github.com/yaoxiaonie/asl"
+    echo "Author: Fixed by vvvffff@From MistyRain"
+    echo "Repo Url: https://github.com/1252158112/asl"
     ;;
 *)
     ASL_PRINT "无事可做，试试加上-h或--help获取帮助？"
